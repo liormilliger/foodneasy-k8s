@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: foodneasy-db
+  labels:
+    app: foodneasy-db
+spec:
+  serviceName: foodneasy-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foodneasy-db
+  template:
+    metadata:
+      labels:
+        app: foodneasy-db
+    spec:
+      containers:
+      - name: postgres
+        image: liormilliger/liorm-foodneasy-db:<tag>  # Replace <tag> with your image tag
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: foodneasy_user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: foodneasy-db-secret
+              key: postgres-password
+        - name: POSTGRES_DB
+          value: foodneasy_db
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
