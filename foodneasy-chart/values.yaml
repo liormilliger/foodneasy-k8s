@@ -9,9 +9,9 @@ app:
     requests:
       memory: "256Mi"
       cpu: "200m"
-    limits:
-      memory: "512Mi"
-      cpu: "500m"
+    # limits:
+    #   memory: "512Mi"
+    #   cpu: "500m"
   service:
     port: 80
 
@@ -26,19 +26,19 @@ db:
     requests:
       memory: "512Mi"
       cpu: "250m"
-    limits:
-      memory: "1Gi"
-      cpu: "500m"
+    # limits:
+    #   memory: "1Gi"
+    #   cpu: "500m"
   storage:
-    size: "10Gi"
+    size: "20Gi"
   credentials:
     user: foodneasy_user
     password: foodneasy_pass  # Consider using a Secret outside Helm
     database: foodneasy_db
 
-# Ingress settings
-ingress:
-  enabled: true
-  host: foodneasy.example.com
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+# # Ingress settings
+# ingress:
+#   enabled: true
+#   host: foodneasy.example.com
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
