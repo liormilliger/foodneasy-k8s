@@ -9,9 +9,9 @@ app:
     requests:
       memory: "256Mi"
       cpu: "200m"
-    # limits:
-    #   memory: "512Mi"
-    #   cpu: "500m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
   service:
     port: 80
 
@@ -26,9 +26,9 @@ db:
     requests:
       memory: "512Mi"
       cpu: "250m"
-    # limits:
-    #   memory: "1Gi"
-    #   cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
   storage:
     size: "20Gi"
   credentials:
