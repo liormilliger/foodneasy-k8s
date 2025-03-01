@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: foodneasy-app
-        image: liormilliger/liorm-foodneasy:<tag>  # Replace <tag> with your image tag
+        image: liormilliger/liorm-foodneasy:latest # Replace <tag> with your image tag
         ports:
         - containerPort: 5000
         env:
@@ -30,5 +30,5 @@ spec:
             memory: "256Mi"
             cpu: "200m"
           limits:
-            memory: "512Mi"
-            cpu: "500m"
+            # memory: "512Mi"
+            # cpu: "500m"
