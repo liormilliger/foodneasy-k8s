@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: foodneasy-config
-data:
-  database-url: "postgresql://foodneasy_user:foodneasy_pass@foodneasy-db:5432/foodneasy_db"  # Replace password if using Secret
