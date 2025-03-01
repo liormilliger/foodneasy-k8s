@@ -36,9 +36,9 @@ db:
     password: foodneasy_pass  # Consider using a Secret outside Helm
     database: foodneasy_db
 
-# # Ingress settings
-# ingress:
-#   enabled: true
-#   host: foodneasy.example.com
-#   annotations:
-#     nginx.ingress.kubernetes.io/rewrite-target: /
+# Ingress settings
+ingress:
+  enabled: true
+  host: foodneasy.example.com
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
